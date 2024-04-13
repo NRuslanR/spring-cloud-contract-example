@@ -1,0 +1,38 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: Consumer Service App
+
+producer:
+  api:
+    base-path: producer-service-app
+    items-path: ${producer.api.base-path}/api/items
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8762/eureka
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+        credentials:
+          user-id: test_user
+          password: test_password
+        interceptor: custom
+  hystrix:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+
+logging:
+  level:
+    '[org.example.consumer.application.ProducerServiceClient]': DEBUG

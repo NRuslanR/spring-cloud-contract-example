@@ -1,0 +1,11 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: Service Discovery Server App
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
