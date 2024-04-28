@@ -1,4 +1,4 @@
-package org.example.producer_http_rest.application;
+package org.example.producer_kafka.application.config;
 
 import org.example.items_api_service.IncorrectCreateItemRequestException;
 import org.springframework.http.ResponseEntity;
@@ -9,11 +9,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler
 {
-    @ExceptionHandler({
-        IncorrectCreateItemRequestException.class
-    })
-    public ResponseEntity<ApplicationError> handleApplicationException(RuntimeException exception)
+    
+    @ExceptionHandler(IncorrectCreateItemRequestException.class)
+    public ResponseEntity<String> handleApplicationException(Exception exception)
     {
-        return ResponseEntity.badRequest().body(new ApplicationError(exception.getMessage()));
+        return ResponseEntity.badRequest().body(exception.getMessage());
     }
 }

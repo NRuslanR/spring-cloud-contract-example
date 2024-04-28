@@ -3,10 +3,10 @@ package org.example.producer_http_rest.application;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import org.examples.items_api_service.CreateItemRequest;
-import org.examples.items_api_service.IncorrectCreateItemRequestException;
-import org.examples.items_api_service.ItemDto;
-import org.examples.items_api_service.ItemsApiService;
+import org.example.items_api_service.CreateItemRequest;
+import org.example.items_api_service.IncorrectCreateItemRequestException;
+import org.example.items_api_service.ItemDto;
+import org.example.items_api_service.ItemsApiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +25,7 @@ public class ApplicationController implements ItemsApiService
     {
         ensureRequestIsValid(request);
 
-        return new ItemDto(
+        return ItemDto.of(
             UUID.randomUUID().toString(), 
             request.getName(), 
             LocalDateTime.now()

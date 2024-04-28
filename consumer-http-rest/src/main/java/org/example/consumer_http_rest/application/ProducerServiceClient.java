@@ -1,6 +1,6 @@
 package org.example.consumer_http_rest.application;
 
-import org.examples.items_api_service.ItemsApiService;
+import org.example.items_api_service.ItemsApiService;
 import org.springframework.cloud.openfeign.FeignClient;
 
 @FeignClient(

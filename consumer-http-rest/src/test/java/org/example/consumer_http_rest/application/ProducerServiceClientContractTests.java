@@ -3,8 +3,9 @@ package org.example.consumer_http_rest.application;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.examples.items_api_service.CreateItemRequest;
-import org.examples.items_api_service.ItemDto;
+
+import org.example.items_api_service.CreateItemRequest;
+import org.example.items_api_service.ItemDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -52,7 +53,7 @@ public class ProducerServiceClientContractTests
     @Test
     public void should_Return_CreatedItem_When_Request_Is_Correct()
     {
-        var request = new CreateItemRequest("Item#1");
+        var request = CreateItemRequest.of("Item#1");
 
         var itemEntity =
             restTemplate.postForEntity(
@@ -74,7 +75,7 @@ public class ProducerServiceClientContractTests
     @Test
     public void should_RaiseError_When_CreateItemRequest_Is_InCorrect()
     {
-        var request = new CreateItemRequest("");
+        var request = CreateItemRequest.of("");
 
         try
         {

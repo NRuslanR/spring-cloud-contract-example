@@ -1,4 +1,4 @@
-package org.examples.items_api_service;
+package org.example.items_api_service;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

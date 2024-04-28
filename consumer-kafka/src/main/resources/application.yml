@@ -1,0 +1,38 @@
+server:
+  port: 8889
+
+spring:
+  application:
+    name: Kafka Consumer Service App
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      bootstrap-servers: ${spring.kafka.bootstrap-servers}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: ItemCreatedEvent:org.example.items_api_service.ItemCreatedEvent
+    consumer:
+      bootstrap-servers: ${spring.kafka.bootstrap-servers}
+      group-id: item-events
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      properties:
+        spring.json.type.mapping: ItemCreatedEvent:org.example.items_api_service.ItemCreatedEvent
+        request.timeout.ms: 500000
+    admin:
+      auto-create: true
+
+eureka:
+  client:
+    enabled: false
+
+application:
+  kafka:
+    topics:
+      item-created:
+        name: 'ItemCreated'
+        partition-count: 1
+        replication-factor: 1

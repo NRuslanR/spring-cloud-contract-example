@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "application.kafka.topics.item-created.name",
+    "type": "java.lang.String",
+    "description": "A description for 'application.kafka.topics.item-created.name'"
+  },
+  {
+    "name": "application.kafka.topics.item-created.replication-factor",
+    "type": "java.lang.String",
+    "description": "A description for 'application.kafka.topics.item-created.replication-factor'"
+  },
+  {
+    "name": "application.kafka.topics.item-created.partition-count",
+    "type": "java.lang.String",
+    "description": "A description for 'application.kafka.topics.item-created.partition-count'"
+  }
+]}

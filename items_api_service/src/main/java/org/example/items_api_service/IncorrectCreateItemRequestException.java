@@ -1,4 +1,4 @@
-package org.examples.items_api_service;
+package org.example.items_api_service;
 
 public class IncorrectCreateItemRequestException extends RuntimeException 
 {
